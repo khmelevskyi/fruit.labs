@@ -1,0 +1,171 @@
+{% load static %}
+
+<!-- Portfolio Modals-->
+<!-- Modal 1-->
+{% for object in objects_list %}
+    {% if object.id != 1 %}
+
+        <div class="portfolio-modal modal fade" id="modal{{object.id}}" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase shop-item-title">{{object.name}}</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    {% if object.image %}
+                                    <img class="img-fluid d-block mx-auto shop-item-image" src="../static/website/img/{{object.image.name}}" alt="" />
+                                    {% else %}
+                                    <img class="img-fluid d-block mx-auto shop-item-image" src="{% static 'website/img/Album_1.png' %}" alt="" />
+                                    {% endif %}
+
+                                    {% if object.text %}
+                                        <p class="lead">{{object.text}}</p>
+                                    {% else %}
+                                        <p class="lead">Really cool</p>
+                                    {% endif %}
+
+                                    <p class="shop-item-price h3">{{object.price}} грн</p>
+
+                                    <button class="btn btn-primary shop-item-button" data-dismiss="modal" type="button">
+                                        <i class="fas fa-times mr-1"></i>
+                                        Добавить к заказу
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% elif object.id == 1 %}
+
+        <div class="portfolio-modal modal fade" id="modalHandMade" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase shop-item-title">{{object.name}}</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+
+                                    {% if object.image %}
+                                    <img class="img-fluid d-block mx-auto shop-item-image" src="../static/website/img/{{object.image.name}}" alt="" />
+                                    {% else %}
+                                    <img class="img-fluid d-block mx-auto shop-item-image" src="{% static 'website/img/Album_1.png' %}" alt="" />
+                                    {% endif %}
+
+                                    {% if object.text %}
+                                        <p class="lead">{{object.text}}</p>
+                                    {% else %}
+                                        <p class="lead">Really cool</p>
+                                    {% endif %}
+
+                                    <div class="container">
+                                        <div class="row">
+                                          <div class="col-12">
+                                            <h6 class="text-muted">Доступные на данный момент фрукты</h6> 
+                                            <ul class="list-group">
+                                            {% for comp in HMcomp_list %}
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    <div class="image-parent" style="height:5rem; width: 5rem">
+                                                        {% if comp.image %}
+                                                            <img src="../static/website/img/{{comp.image.name}}" class="img-fluid" alt="">
+                                                        {% else %}
+                                                            <img src="{% static 'website/img/Album_1.png' %}" class="img-fluid" alt="">
+                                                        {% endif %}
+                                                    </div>
+                                                    {{comp.name}}
+                                                </li>
+                                            {% endfor %}
+                                            </ul>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    
+                                    <p class="shop-item-price h3">{{object.price}} грн</p>
+
+                                    <button class="btn btn-primary shop-item-button" data-dismiss="modal" type="button">
+                                        <i class="fas fa-times mr-1"></i>
+                                        Добавить к заказу
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    {% endif %}
+{% endfor %}
+
+{% for pastilla in pastilla_list %}
+
+<div class="portfolio-modal modal fade" id="modalPastilla" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here-->
+                            <h2 class="text-uppercase shop-item-title">{{pastilla.name}}</h2>
+                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                            {% if pastilla.image %}
+                                <img class="img-fluid d-block mx-auto shop-item-image" src="../../static/website/img/{{pastilla.image.name}}" alt="" />
+                            {% else %}
+                                <img class="img-fluid d-block mx-auto shop-item-image" src="{% static 'website/img/Album_1.png' %}" alt="" />
+                            {% endif %}
+
+                            {% if pastilla.text %}
+                                <p class="lead">{{pastilla.text}}</p>
+                            {% else %}
+                                <p class="lead">Really cool</p>
+                            {% endif %}
+
+                            <div class="container">
+                                <div class="row">
+                                  <div class="col-12">
+                                    <h6 class="text-muted">Доступные на данный момент фрукты</h6> 
+                                    <ul class="list-group">
+                                    {% for comp in Pcomp_list %}
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <div class="image-parent" style="height:5rem; width: 5rem">
+                                                {% if comp.image %}
+                                                    <img src="../static/website/img/{{comp.image.name}}" class="img-fluid" alt="">
+                                                {% else %}
+                                                    <img src="{% static 'website/img/Album_1.png' %}" class="img-fluid" alt="">
+                                                {% endif %}
+                                            </div>
+                                            {{comp.name}}
+                                        </li>
+                                    {% endfor %}
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+
+                            <p class="shop-item-price h3">{{pastilla.price}} грн</p>
+
+                            <button class="btn btn-primary shop-item-button" data-dismiss="modal" type="button">
+                                <i class="fas fa-times mr-1"></i>
+                                Добавить к заказу
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
