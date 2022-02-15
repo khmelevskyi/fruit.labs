@@ -25,7 +25,7 @@ SECRET_KEY = 'zfz4p!fxsmcz-wf@bs5h$b)hyz@yq5!=#02h(o@&ue_)ru$a2y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['86f27abcfea7.ngrok.io', 'localhost']
+ALLOWED_HOSTS = ['ab67f70efacf.ngrok.io', 'localhost']
 
 
 # Application definition
@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'website',
 
     # third-party
-    'django_cleanup',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [
